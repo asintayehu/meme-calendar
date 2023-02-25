@@ -3,11 +3,15 @@ import pandas as pd
 import snscrape.modules.twitter as sntwitter
 
 scraper = sntwitter.TwitterTrendsScraper()
-tweets = []
+trend_list = []
 
 for trend in scraper.get_items():
-    print(trend)
-    break
+    if 'Entertainment' in trend.domainContext:
+        trend_list.append([trend.name, trend.domainContext])
+
+print(trend_list)
+
+
 
 
 """
